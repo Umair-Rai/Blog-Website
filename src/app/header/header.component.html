@@ -1,1 +1,14 @@
-<p>header works!</p>
+<header class="header">
+  <div class="container">
+    <h1>Blogging Website</h1>
+    <nav>
+      <ul class="nav-links">
+        <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
+        <li><a routerLink="/about" routerLinkActive="active">About</a></li>
+        <li><a routerLink="/login" routerLinkActive="active">Login</a></li>
+        <li><a routerLink="/sign-up" routerLinkActive="active">Sign up</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<router-outlet></router-outlet>
