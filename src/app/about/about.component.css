@@ -1,0 +1,98 @@
+/* Main container */
+.about-container {
+  font-family: 'Arial', sans-serif;
+  margin: 0 auto;
+  max-width: 900px;
+  padding: 20px;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Header section */
+.about-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.about-header h1 {
+  font-size: 2.5rem;
+  color: #007BFF;
+}
+
+.about-header .tagline {
+  font-size: 1.2rem;
+  color: #555;
+  margin-top: 10px;
+}
+
+/* Profile Section */
+.profile-section {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.profile-section .profile-picture {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border: 4px solid #007BFF;
+}
+
+.profile-section h2 {
+  font-size: 1.8rem;
+  margin-top: 15px;
+  color: #333;
+}
+
+.profile-section p {
+  font-size: 1rem;
+  color: #666;
+  margin-top: 10px;
+}
+
+/* Interests Section */
+.interests-section {
+  margin-top: 30px;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.interests-section h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.interests-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.interests-section ul li {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 10px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.interests-section ul li:before {
+  content: "✔";
+  color: #007BFF;
+  position: absolute;
+  left: 0;
+}
+
+/* Footer message */
+.footer-message {
+  margin-top: 20px;
+  text-align: center;
+  color: #555;
+}
+
+.footer-message p {
+  font-size: 1rem;
+}
