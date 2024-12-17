@@ -1,0 +1,28 @@
+{
+  "blogs": [
+    {
+      "id": "1",
+      "title": "Hello World",
+      "author": "Faizan",
+      "content": "Tujhy pata tu nae home.css mae kiya kiya huwa tha"
+    },
+    {
+      "id": "2",
+      "title": "JSON Server",
+      "author": "Hamma",
+      "content": "Tujhy pata tu nae home.css mae kiya kiya huwa tha"
+    },
+    {
+      "id": "0e9ad549-b157-465f-b7df-daf0c8a8087a",
+      "title": "asd",
+      "author": "1233",
+      "content": "asdasd"
+    },
+    {
+      "id": "0e9ad549-b157-465f-b7df-daf0c8a8087a",
+      "title": "asdasd",
+      "author": "asdasda",
+      "content": "asdasd"
+    }
+  ]
+}
