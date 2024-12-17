@@ -1,0 +1,8 @@
+
+  <p>{{ blog.title }}</p>
+  <p>{{ blog.author }}</p>
+  <p>{{ blog.content }}</p>
+  <span *ngIf="userName === blog.creator">
+  <a [routerLink]="['/editblog', blog.id]">Edit Post</a>
+    <button class="btn btn-danger " (click)="deleteblog(blog.id)"> Delete blog</button>
+</span>

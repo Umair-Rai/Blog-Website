@@ -1,6 +1,5 @@
-
 <div class="container">
-  <h2 class="header">Add a New Post</h2>
+  <h2 class="header">Edit your Post</h2>
 
   <form #postForm="ngForm" (ngSubmit)="onSubmit(postForm)">
     <!-- Post Title -->
@@ -11,8 +10,8 @@
         id="title"
         class="input-field"
         name="title"
-        [(ngModel)]="post.title"
-        required>
+        [(ngModel)]="edit.title"
+        required />
     </div>
 
     <!-- Post Author -->
@@ -23,8 +22,8 @@
         id="author"
         class="input-field"
         name="author"
-        [(ngModel)]="post.author"
-        required>
+        [(ngModel)]="edit.author"
+        required />
     </div>
 
     <!-- Post Content -->
@@ -35,7 +34,7 @@
         class="textarea-field"
         rows="5"
         name="content"
-        [(ngModel)]="post.content"
+        [(ngModel)]="edit.content"
         required>
       </textarea>
     </div>
@@ -52,8 +51,8 @@
   <!-- Success Message -->
   <div *ngIf="isSubmitted" class="success-message">
     <p>Post successfully added!</p>
-    <p><strong>Title:</strong> {{ post.title }}</p>
-    <p><strong>Author:</strong> {{ post.author }}</p>
-    <p><strong>Content:</strong> {{ post.content }}</p>
+    <p><strong>Title:</strong> {{ edit.title }}</p>
+    <p><strong>Author:</strong> {{ edit.author }}</p>
+    <p><strong>Content:</strong> {{ edit.content }}</p>
   </div>
 </div>
