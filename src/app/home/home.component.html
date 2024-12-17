@@ -1,39 +1,58 @@
-import { Component } from '@angular/core';
-import {HeaderComponent} from '../header/header.component';
-import {FooterComponent} from '../footer/footer.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {NgIf} from '@angular/common';
+<div class="container">
+  <h2 class="header">Add a New Post</h2>
 
-@Component({
-  selector: 'app-home',
-  imports: [
-    FooterComponent,
-    HeaderComponent,
-    FormsModule, ReactiveFormsModule, NgIf,
-  ],
-  templateUrl: './home.component.html',
-  standalone: true,
-  styleUrl: './home.component.css'
-})
-export class HomeComponent {
-  post = {
-    title: '',
-    author:'',
-    content: ''
-  };
+  <form #postForm="ngForm" (ngSubmit)="onSubmit(postForm)">
+    <!-- Post Title -->
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input
+        type="text"
+        id="title"
+        class="input-field"
+        name="title"
+        [(ngModel)]="post.title"
+        required>
+    </div>
 
-  isSubmitted = false;
+    <!-- Post Author -->
+    <div class="form-group">
+      <label for="author">Author</label>
+      <input
+        type="text"
+        id="author"
+        class="input-field"
+        name="author"
+        [(ngModel)]="post.author"
+        required>
+    </div>
 
-  onSubmit(form: any): void {
-    if (form.valid) {
-      console.log('Post Data:', this.post);
-      this.isSubmitted = true;
+    <!-- Post Content -->
+    <div class="form-group">
+      <label for="content">Content</label>
+      <textarea
+        id="content"
+        class="textarea-field"
+        rows="5"
+        name="content"
+        [(ngModel)]="post.content"
+        required>
+      </textarea>
+    </div>
 
-      // Hide success message after 3 seconds
-      setTimeout(() => {
-        this.isSubmitted = false;
-        form.resetForm();
-      }, 3000);
-    }
-  }
-}
+    <!-- Submit Button -->
+    <button
+      type="submit"
+      class="submit-btn"
+      [disabled]="!postForm.valid">
+      Add Post
+    </button>
+  </form>
+
+  <!-- Success Message -->
+  <div *ngIf="isSubmitted" class="success-message">
+    <p>Post successfully added!</p>
+    <p><strong>Title:</strong> {{ post.title }}</p>
+    <p><strong>Author:</strong> {{ post.author }}</p>
+    <p><strong>Content:</strong> {{ post.content }}</p>
+  </div>
+</div>
