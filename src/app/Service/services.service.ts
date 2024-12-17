@@ -19,7 +19,17 @@ export class ServicesService {
   addAccount(data: any): Observable<any> {
     return this.http.post<any>(this.accountUrl, data);
   }
-  addPost(post: any): Observable<any> {
-    return this.http.post<any>(this.apiUrl, post);
+
+
+  senddata(data: any) {
+   return this.http.post<any>(this.apiUrl,data);
   }
+  getdata(){
+    return this.http.get(this.apiUrl);
+  }
+  getid(id:any)
+  {
+    return this.http.get(`http://localhost:3000/blogs/${id}`);
+  }
+
 }
