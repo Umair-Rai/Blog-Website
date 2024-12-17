@@ -1,21 +1,25 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ServicesService {
+  private accountUrl = 'http://localhost:3000/account'; // Adjust the URL if needed
+  private apiUrl = 'http://localhost:3000/blogs';
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-  url = `http://localhost:3000/blogs`;
-  senddata(data: any) {
-   return this.http.post<any>(this.url,data);
-  }
-  getdata(){
-    return this.http.get(this.url);
-  }
-  getid(id:any)
-  {
-    return this.http.get(`http://localhost:3000/blogs/${id}`);
+  // Fetch accounts from the database
+  getAccounts(): Observable<any[]> {
+    return this.http.get<any[]>(this.accountUrl);
   }
 
+  // Add a new account
+  addAccount(data: any): Observable<any> {
+    return this.http.post<any>(this.accountUrl, data);
+  }
+  addPost(post: any): Observable<any> {
+    return this.http.post<any>(this.apiUrl, post);
+  }
 }

@@ -1,30 +1,47 @@
 import { Component } from '@angular/core';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
+import { ServicesService } from '../Service/services.service';
 import {FormsModule} from '@angular/forms';
+import {NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-login',
-  imports: [
-    FormsModule
-  ],
   templateUrl: './login.component.html',
-  standalone: true,
-  styleUrl: './login.component.css'
+  styleUrls: ['./login.component.css'],
+  imports: [
+    FormsModule,
+    NgIf
+  ],
+  standalone: true
 })
 export class LoginComponent {
-
   email: string = '';
   password: string = '';
+  errorMessage: string = '';  // Error message for invalid login
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private service: ServicesService) {}
 
   onLogin() {
-    // Mock login logic for demonstration
-    if (this.email === 'admin@example.com' && this.password === 'password') {
-      localStorage.setItem('isLoggedIn', 'true');
-      this.router.navigate(['/']); // Redirect to home page
-    } else {
-      alert('Invalid credentials!');
-    }
+    this.service.getAccounts().subscribe(
+      (accounts) => {
+        // Find account by email and check password
+        const user = accounts.find(
+          (account) => account.email === this.email && account.password === this.password
+        );
+
+        if (user) {
+          // If the user exists and credentials match, log them in
+          localStorage.setItem('isLoggedIn', 'true');
+          alert('Congratulations! You have logged in successfully!');
+          this.router.navigate(['/']); // Redirect to home page after login
+        } else {
+          // If credentials are invalid
+          this.errorMessage = 'Invalid email or password!';
+        }
+      },
+      (error) => {
+        this.errorMessage = 'Error while fetching accounts!';
+      }
+    );
   }
 }

@@ -1,39 +1,61 @@
 import { Component } from '@angular/core';
+import { ServicesService } from '../Service/services.service';
 import {FormsModule} from '@angular/forms';
-import {Router} from '@angular/router';
+import {NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-sign-up',
-  imports: [
-    FormsModule
-  ],
   templateUrl: './sign-up.component.html',
   standalone: true,
-  styleUrl: './sign-up.component.css'
+  imports: [
+    FormsModule,
+    NgIf
+  ]
 })
 export class SignUpComponent {
+  user = { email: '', Name: '', password: '' }; // Form data model
+  errorMessage = ''; // Error message for UI feedback
 
-  name: string = '';
-  email: string = '';
-  password: string = '';
-  confirmPassword: string = '';
-
-  constructor(private router: Router) {}
+  constructor(private service: ServicesService) {}
 
   onSignUp() {
-    if (this.password === this.confirmPassword) {
-      // Mock sign-up logic
-      const user = { name: this.name, email: this.email, password: this.password };
-      console.log('User registered:', user);
-
-      // Save user data (for demonstration purposes; use a backend in production)
-      localStorage.setItem('user', JSON.stringify(user));
-      alert('Sign-Up Successful! You can now log in.');
-
-      // Redirect to the login page
-      this.router.navigate(['/login']);
-    } else {
-      alert('Passwords do not match.');
+    if(this.user.Name == "" || this.user.password == "" || this.user.email == "" || this.user.password == "")
+    {
+      this.errorMessage = "Fill the Whole Form";
+      return;
     }
+    // Fetch accounts from the database
+    this.service.getAccounts().subscribe({
+      next: (accounts: any[]) => {
+        // Ensure accounts is an array and check for the email
+        if (Array.isArray(accounts)) {
+          const emailExists = accounts.some(
+            (account) => account.email.toLowerCase() === this.user.email.toLowerCase()
+          );
+
+          if (emailExists) {
+            // Email exists in the database
+            this.errorMessage = 'Email is already in use!';
+          } else {
+            // Add the new account if email is unique
+            this.service.addAccount(this.user).subscribe({
+              next: () => {
+                alert('Sign-Up Successful!');
+                this.user = { email: '', Name: '', password: '' }; // Reset the form
+                this.errorMessage = ''; // Clear any previous errors
+              },
+              error: () => {
+                this.errorMessage = 'Sign-Up Failed! Please try again.';
+              },
+            });
+          }
+        } else {
+          this.errorMessage = 'Invalid response format from the server.';
+        }
+      },
+      error: () => {
+        this.errorMessage = 'Error connecting to the server!';
+      },
+    });
   }
 }

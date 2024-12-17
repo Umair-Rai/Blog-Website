@@ -1,54 +1,52 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router'; // Add RouterModule for routing
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgIf } from '@angular/common';
 import { ServicesService } from '../Service/services.service';
-import {v4 as uuid} from 'uuid';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-home',
-  standalone: true,
   imports: [
-    RouterModule, // Add RouterModule here for routing support
-    HeaderComponent,
     FooterComponent,
+    HeaderComponent,
     FormsModule,
     ReactiveFormsModule,
     NgIf,
   ],
-  styleUrl: './home.component.css',
   templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css'],
+  standalone: true
 })
 export class HomeComponent {
-  constructor(private services: ServicesService) {}
   post = {
-    id: uuid(),
     title: '',
-    author:'',
-    content: ''
+    author: '',
+    content: '',
   };
 
   isSubmitted = false;
 
+  constructor(private service: ServicesService) {}
+
   onSubmit(form: any): void {
     if (form.valid) {
-      console.log('Post Data:', this.post);
-      this.isSubmitted = true;
-      this.services.senddata(this.post).subscribe(
-        (data) => {
-        console.log("data sent success");
-        },
-      (error) => {
-        console.log("data sent failed");
-      });{ }
+      // Call the service to add the new post
+      this.service.addPost(this.post).subscribe(
+        (response) => {
+          console.log('Post added successfully:', response);
+          this.isSubmitted = true;
 
-      // Hide success message after 3 seconds
-      setTimeout(() => {
-        this.isSubmitted = false;
-        form.resetForm();
-      }, 3000);
+          // Hide success message after 3 seconds
+          setTimeout(() => {
+            this.isSubmitted = false;
+            form.resetForm();
+          }, 3000);
+        },
+        (error) => {
+          console.error('Error adding post:', error);
+        }
+      );
     }
   }
 }

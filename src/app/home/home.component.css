@@ -1,68 +1,47 @@
-/* General Styles */
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
-  margin: 0;
-  padding: 0;
-}
-
-/* Container */
+/* Container for the form */
 .container {
   max-width: 600px;
-  margin: 50px auto;
-  background: #fff;
+  margin: 0 auto;
   padding: 20px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
   border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Header */
 .header {
   text-align: center;
-  color: #333;
+  font-size: 24px;
   margin-bottom: 20px;
-  font-size: 1.8em;
 }
 
-/* Form Group */
+/* Form fields */
 .form-group {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
-label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 5px;
-  color: #444;
-}
-
-.input-field, .textarea-field {
+.input-field,
+.textarea-field {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 1em;
-  box-sizing: border-box;
+  border-radius: 4px;
+  font-size: 16px;
 }
 
-.input-field:focus, .textarea-field:focus {
-  outline: none;
-  border-color: #6c63ff;
-  box-shadow: 0px 0px 5px rgba(108, 99, 255, 0.5);
+.textarea-field {
+  resize: vertical;
 }
 
-/* Submit Button */
 .submit-btn {
-  display: block;
   width: 100%;
   padding: 10px;
-  background-color: #6c63ff;
-  color: #fff;
+  background-color: #4caf50;
+  color: white;
+  font-size: 16px;
   border: none;
-  border-radius: 5px;
+  border-radius: 4px;
   cursor: pointer;
-  font-size: 1.1em;
-  transition: background-color 0.3s;
 }
 
 .submit-btn:disabled {
@@ -70,17 +49,13 @@ label {
   cursor: not-allowed;
 }
 
-.submit-btn:hover:enabled {
-  background-color: #574bff;
-}
-
-/* Success Message */
+/* Success message */
 .success-message {
+  text-align: center;
   margin-top: 20px;
-  padding: 15px;
-  border: 1px solid #4caf50;
-  background-color: #e8f5e9;
-  border-radius: 5px;
-  color: #2e7d32;
-  font-size: 1em;
+  padding: 20px;
+  background-color: #dff0d8;
+  border: 1px solid #d0e9c6;
+  color: #3c763d;
+  border-radius: 4px;
 }

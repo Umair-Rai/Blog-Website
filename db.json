@@ -1,28 +1,42 @@
 {
   "blogs": [
     {
-      "id": "1",
-      "title": "Hello World",
-      "author": "Faizan",
-      "content": "Tujhy pata tu nae home.css mae kiya kiya huwa tha"
+      "title": "First Blog",
+      "author": "John Doe",
+      "content": "This is my first blog.",
+      "id": "b2b3"
     },
     {
-      "id": "2",
-      "title": "JSON Server",
-      "author": "Hamma",
-      "content": "Tujhy pata tu nae home.css mae kiya kiya huwa tha"
+      "id": "58da",
+      "title": "The great me ",
+      "author": "Rai",
+      "content": "I don't Lose I win "
+    }
+  ],
+  "account": [
+    {
+      "email": "umair@gmail.com",
+      "Name": "Umair",
+      "password": "admin",
+      "id": "f2de"
     },
     {
-      "id": "0e9ad549-b157-465f-b7df-daf0c8a8087a",
-      "title": "asd",
-      "author": "1233",
-      "content": "asdasd"
+      "email": "hammad@gmail.com",
+      "Name": "Hammad",
+      "password": "admin",
+      "id": "2a27"
     },
     {
-      "id": "0e9ad549-b157-465f-b7df-daf0c8a8087a",
-      "title": "asdasd",
-      "author": "asdasda",
-      "content": "asdasd"
+      "id": "a72d",
+      "email": "faizan@gmail.com",
+      "Name": "faizan",
+      "password": "faizan"
+    },
+    {
+      "id": "1626",
+      "email": "u@gmail.com",
+      "Name": "",
+      "password": ""
     }
   ]
 }
