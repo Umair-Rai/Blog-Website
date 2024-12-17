@@ -31,5 +31,10 @@ export class ServicesService {
   {
     return this.http.get(`http://localhost:3000/blogs/${id}`);
   }
-
+  updatedata(id :any , data: any) {
+    return this.http.put<any>(`http://localhost:3000/blogs/${id}`,data);
+  }
+  deletedata(id :any ) {
+    return this.http.delete<any>(`http://localhost:3000/blogs/${id}`);
+  }
 }
