@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
 import { ServicesService } from '../Service/services.service';
 import { UserService } from '../Service/user.service';
 import {FormsModule} from '@angular/forms';
-import {NgIf} from '@angular/common'; // Import UserService
+import {NgIf} from '@angular/common'; 
 
 @Component({
   selector: 'app-login',
@@ -11,7 +11,8 @@ import {NgIf} from '@angular/common'; // Import UserService
   styleUrls: ['./login.component.css'],
   imports: [
     FormsModule,
-    NgIf
+    NgIf,
+    RouterLink
   ],
   standalone: true
 })
