@@ -6,6 +6,7 @@ import {NgIf} from '@angular/common';
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
+  styleUrls: ['./sign-up.component.css'],
   standalone: true,
   imports: [
     FormsModule,

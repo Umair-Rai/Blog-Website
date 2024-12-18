@@ -1,0 +1,86 @@
+/* Container for My Blogs Section */
+.my-blogs-container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Section Header */
+.section-header {
+  font-size: 24px;
+  color: #333333;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #ff6f00;
+  padding-bottom: 10px;
+}
+
+/* Message for No Blogs */
+.no-blogs-message {
+  font-size: 16px;
+  color: #888888;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Blog Item */
+.blog-item {
+  margin-bottom: 30px;
+  padding: 15px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+/* Blog Title */
+.blog-title {
+  font-size: 20px;
+  color: #4caf50;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 5px;
+}
+
+/* Blog Author */
+.blog-author {
+  font-size: 16px;
+  color: #555555;
+  margin-bottom: 10px;
+}
+
+/* Blog Content */
+.blog-content {
+  font-size: 14px;
+  color: #444444;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+/* Blog Actions (Links) */
+.blog-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.read-more-link {
+  font-size: 14px;
+  color: #2196f3;
+  text-decoration: none;
+  border: 1px solid #2196f3;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.read-more-link:hover {
+  background-color: #2196f3;
+  color: #ffffff;
+}

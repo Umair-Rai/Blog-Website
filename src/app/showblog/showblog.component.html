@@ -1,8 +1,10 @@
+<div class="blog-details">
+  <h2 class="blog-title">{{ blog.title }}</h2>
+  <p class="blog-author"><strong>Author:</strong> {{ blog.author }}</p>
+  <div class="blog-content">{{ blog.content }}</div>
 
-  <p>{{ blog.title }}</p>
-  <p>{{ blog.author }}</p>
-  <p>{{ blog.content }}</p>
-  <span *ngIf="userName === blog.creator">
-  <a [routerLink]="['/editblog', blog.id]">Edit Post</a>
-    <button class="btn btn-danger " (click)="deleteblog(blog.id)"> Delete blog</button>
-</span>
+  <div *ngIf="userName === blog.creator" class="blog-actions">
+    <a [routerLink]="['/editblog', blog.id]" class="edit-link">Edit Post</a>
+    <button class="delete-btn" (click)="deleteblog(blog.id)">Delete Blog</button>
+  </div>
+</div>

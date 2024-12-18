@@ -1,0 +1,18 @@
+<div class="my-blogs-container">
+  <h3 class="section-header">My Blogs</h3>
+
+  <div *ngFor="let item of items" class="blog-item">
+    <div *ngIf="userName === item.creator" (ngOnInit)="check()">
+      <h4 class="blog-title">{{ item.title }}</h4>
+      <p class="blog-author"><strong>Author:</strong> {{ item.author }}</p>
+      <p class="blog-content">{{ item.content }}</p>
+      <div class="blog-actions">
+        <a [routerLink]="['/blogs', item.id]" class="read-more-link">... more</a>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="io === 0" class="no-blogs-message">
+    <p>No blogs to display. Start creating your first blog!</p>
+  </div>
+</div>

@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ServicesService } from '../Service/services.service';
+import { UserService } from '../Service/user.service';
 import {FormsModule} from '@angular/forms';
-import {NgIf} from '@angular/common';
+import {NgIf} from '@angular/common'; // Import UserService
 
 @Component({
   selector: 'app-login',
@@ -17,25 +18,26 @@ import {NgIf} from '@angular/common';
 export class LoginComponent {
   email: string = '';
   password: string = '';
-  errorMessage: string = '';  // Error message for invalid login
+  errorMessage: string = '';
 
-  constructor(private router: Router, private service: ServicesService) {}
+  constructor(
+    private router: Router,
+    private service: ServicesService,
+    private userService: UserService // Inject UserService
+  ) {}
 
   onLogin() {
     this.service.getAccounts().subscribe(
       (accounts) => {
-        // Find account by email and check password
         const user = accounts.find(
           (account) => account.email === this.email && account.password === this.password
         );
 
         if (user) {
-          // If the user exists and credentials match, log them in
-          localStorage.setItem('isLoggedIn', 'true');
+          this.userService.setUserName(user.Name); // Set user name in service
           alert('Congratulations! You have logged in successfully!');
-          this.router.navigate(['/']); // Redirect to home page after login
+          this.router.navigate(['/']);
         } else {
-          // If credentials are invalid
           this.errorMessage = 'Invalid email or password!';
         }
       },
