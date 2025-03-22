@@ -1,11 +1,11 @@
-#Blog Website
+**Blog Website**
 
 A responsive blogging platform built with Angular, featuring dynamic content and a modern UI.
 
-#Overview
+**Overview**
 This project is a fully functional blogging website developed using Angular. It demonstrates my skills in frontend development, including component-based architecture, routing, and API integration. The site allows users to browse blog posts, view individual articles, and enjoy a seamless, responsive experience.
 
-#Features
+**Features**
 Dynamic Routing: Navigate between home, blog list, and individual post pages using Angular Router.
 Component-Based Design: Modular components for reusable UI elements (e.g., header, footer, post cards).
 Responsive Layout: Styled with CSS to adapt to various screen sizes.
@@ -16,18 +16,18 @@ Angular: Framework for building the frontend.
 TypeScript: For type-safe coding and Angular compatibility.
 HTML/CSS: For structure and styling.
 Git: Version control and collaboration.
-Installation
+
+**Installation**
 Clone the Repository:
 bash
 
-##Code
+Code
 git clone https://github.com/Umair-Rai/Blog-Website.git
-##Navigate to the Project:
+Navigate to the Project:
 
 cd Blog-Website
 Install Dependencies:
 
-Copy
 npm install
 Run the Application:
 
@@ -37,23 +37,12 @@ Usage
 Browse the homepage to see featured posts.
 Click a post title to view its full content.
 Use the navigation bar to explore different sections.
-#Project Structure
 
-Blog-Website/
-├── src/
-│   ├── app/
-│   │   ├── components/    # Reusable UI components (e.g., header, post-card)
-│   │   ├── pages/         # Main views (e.g., home, blog-list, blog-post)
-│   │   └── services/      # API call logic
-│   ├── assets/            # Images and static files
-│   └── styles/            # Global CSS
-├── README.md              # This file
-└── package.json           # Dependencies and scripts
-#Future Improvements
+**Future Improvements**
 Add user authentication for post creation.
 Implement a backend (e.g., Node.js) for dynamic content storage.
 Enhance styling with a CSS framework like Bootstrap.
-##Contact
+**Contact**
 Feel free to reach out for questions or collaboration:
 
 Email: umair.akramcs@gmail.com
